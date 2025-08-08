@@ -1,0 +1,96 @@
+#1
+# Import datetime from datetime below:
+from datetime import datetime
+
+current_time = datetime.now()
+
+print(current_time)
+
+#2
+# Import random below:
+import random
+
+# Create random_list below:
+random_list = [random.randint(0,100) for i in range(101)]
+
+# Create randomer_number below:
+randomer_number = random.choice(random_list)
+
+# Print randomer_number below:
+print(randomer_number)
+
+#3
+import codecademylib3_seaborn
+from matplotlib import pyplot as plt
+import random
+
+# Add your code below:
+numbers_a = range(1,13)
+
+numbers_b = random.sample(range(1000), 12)
+
+plt.plot(numbers_a, numbers_b)
+
+plt.show()
+
+the above code produced a graph as output, using random numbers as coordinates for the whole thing. Very nifty. 
+
+#4
+# Import Decimal below:
+from decimal import Decimal
+
+# Fix the floating point math below:
+two_decimal_points = Decimal("0.2") + Decimal("0.69")
+print(two_decimal_points)
+
+four_decimal_points = Decimal("0.53") * Decimal("0.65")
+print(four_decimal_points)
+
+#5
+The solution to #5 is split into two pieces of code. One part in script.py (python) and one part in library.py (library module)
+Script.py:
+# Import library below:
+from library import always_three
+
+# Call your function below:
+print(always_three())
+
+library.py:
+# Add your always_three() function below:
+def always_three():
+  return 3
+
+strptime() converts a string into a datetime object using a specified format. It's part of Python's datetime module.
+
+
+Project:
+This project required two different python files. One contains a custom module and one contains the raw python script I am used to. Here is the custom module:
+def generate_time_travel_message(year, destination, cost):
+  return (f"The year is {year}, the destination is {destination} and the total cost of the trip is £{cost}")
+
+and here is the raw coding:
+from datetime import datetime as dt
+from decimal import Decimal
+from random import randint, choice
+import custom_module
+
+print(dt.now())
+
+base_cost = Decimal("1000")
+
+target_year = randint(0000, 2025)
+
+target_destination = choice(["France", "Germany", "Poland", "Peckham"])
+
+current_year = dt.now().year
+
+year_difference = abs(target_year - current_year)
+
+multiplier_per_year = Decimal("17.85")
+
+final_cost = base_cost + (year_difference * multiplier_per_year)
+
+#print(f"The Final Cost of your trip to {target_destination} in  {target_year} is £{final_cost:.2f}")
+
+print(custom_module.generate_time_travel_message(destination = target_destination, year = target_year, cost = final_cost))
+
