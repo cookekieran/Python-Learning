@@ -1,0 +1,187 @@
+Files
+#1
+with open("welcome.txt") as text_file:
+  text_data = text_file.read()
+print(text_data)
+
+#2
+with open ("how_many_lines.txt") as lines_doc:
+  for line in lines_doc.readlines():
+    print(line)    
+
+#3
+with open("just_the_first.txt") as first_line_doc:
+  first_line = first_line_doc.readline()
+  print(first_line)
+
+#4 
+ 
+
+with open("bad_bands.txt", "w") as bad_bands_doc:
+  bad_bands_doc.write("Harry Styles")
+
+
+
+#5
+with open("cool_dogs.txt", "a") as cool_dogs_file:
+  cool_dogs_file.write("Air Buddy\n")  
+  answer = cool_dogs_file.read()
+  print(answer)
+
+THIS PRODUCES AN ERROR, because the file has to be in read mode to read it. If its in append mode you cannot read the file.
+Correct version:
+with open("cool_dogs.txt", "a") as cool_dogs_file:
+  cool_dogs_file.write("Air Buddy\n")  
+
+with open("cool_dogs.txt", "r") as answer:
+  print(answer.read())
+ 
+#6
+with open("fun_file.txt") as close_this_file:
+  setup = close_this_file.readline()
+  punchline = close_this_file.readline()
+  print(setup,punchline)
+
+#7
+with open("logger.csv") as log_csv_file:
+  print(log_csv_file.read())
+
+#8
+import csv
+
+with open("cool_csv.csv") as cool_csv_file:
+  cool_csv_dict = csv.DictReader(cool_csv_file)
+  for row in cool_csv_dict:
+    print(row["Cool Fact"])
+
+
+
+#9
+import csv
+
+with open("books.csv") as books_csv:
+  books_reader = csv.DictReader(books_csv, delimiter = "@")
+  isbn_list = [book["ISBN"] for book in books_reader]
+  print(isbn_list)
+
+#10
+access_log = [{'time': '08:39:37', 'limit': 844404, 'address': '1.227.124.181'}, {'time': '13:13:35', 'limit': 543871, 'address': '198.51.139.193'}, {'time': '19:40:45', 'limit': 3021, 'address': '172.1.254.208'}, {'time': '18:57:16', 'limit': 67031769, 'address': '172.58.247.219'}, {'time': '21:17:13', 'limit': 9083, 'address': '124.144.20.113'}, {'time': '23:34:17', 'limit': 65913, 'address': '203.236.149.220'}, {'time': '13:58:05', 'limit': 1541474, 'address': '192.52.206.76'}, {'time': '10:52:00', 'limit': 11465607, 'address': '104.47.149.93'}, {'time': '14:56:12', 'limit': 109, 'address': '192.31.185.7'}, {'time': '18:56:35', 'limit': 6207, 'address': '2.228.164.197'}]
+fields = ['time', 'address', 'limit']
+
+import csv
+
+with open("logger.csv", "w") as logger_csv:
+  log_writer = csv.DictWriter(logger_csv, fieldnames = fields)
+
+  log_writer.writeheader()
+  for line in access_log:
+    log_writer.writerow(line)
+
+with open("logger.csv") as answer:
+  print(answer.read())
+
+
+
+
+
+
+#11
+import json
+
+with open("message.json") as message_json:
+  message = json.load(message_json) # This turns the message_json file into a dictionary under the name "message"
+  print(message["secret text"]) # Square brackets here as that's how you access stuff in dictionaries
+
+import pprint
+pprint.pprint(message) # This prints the entire file so you can see what's going on 
+
+#12
+data_payload = [
+  {'interesting message': 'What is JSON? A web application\'s little pile of secrets.',
+   'follow up': 'But enough talk!'}
+]
+
+import json
+
+with open("data.json", "w") as data_json:
+  json.dump(data_payload, data_json)
+
+with open("data.json") as data_json:
+  print(data_json["interesting message"])
+  print(data_json.read())
+
+#13
+with open('file.txt') as file_object:
+  print(file_object.read())
+
+
+
+
+
+Quiz:
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+Project:
+import csv
+
+compromised_users_list = []
+
+with open("passwords.csv") as password_file:
+  #print(csv_file.read())
+  password_file_dict = csv.DictReader(password_file)
+  for row in password_file_dict:
+    compromised_users = (row["Username"])
+    password_row = row["Password"]
+    #print(compromised_users, password_row)
+    compromised_users_list.append(compromised_users)
+
+# print("Compromised users:", compromised_users_list)
+
+with open("compromised_users.txt", "w") as compromised_user_file:
+  for compromised_user in compromised_users_list:
+    compromised_user_file.write(compromised_user + "\n")
+  
+# with open("compromised_users.txt") as text:
+#   print(text.read())
+
+import json
+
+with open("boss_message.json", "w") as boss_message:
+  boss_message_dict = {"Recipient": "The Boss", "message": "Mission Success"}
+  json.dump(boss_message_dict, boss_message)
+  
+with open("new_passwords.csv", "w") as new_passwords_obj:
+  slash_null_sig = """ _  _     ___   __  ____             
+/ )( \   / __) /  \(_  _)            
+) \/ (  ( (_ \(  O ) )(              
+\____/   \___/ \__/ (__)             
+ _  _   __    ___  __ _  ____  ____  
+/ )( \ / _\  / __)(  / )(  __)(    \ 
+) __ (/    \( (__  )  (  ) _)  ) D ( 
+\_)(_/\_/\_/ \___)(__\_)(____)(____/ 
+        ____  __     __   ____  _  _ 
+ ___   / ___)(  )   / _\ / ___)/ )( \
+(___)  \___ \/ (_/\/    \\___ \) __ (
+       (____/\____/\_/\_/(____/\_)(_/
+ __ _  _  _  __    __                
+(  ( \/ )( \(  )  (  )               
+/    /) \/ (/ (_/\/ (_/\             
+\_)__)\____/\____/\____/
+"""
+  new_passwords_obj.write(slash_null_sig)
+
+with open("new_passwords.csv") as final_answer:
+  print(final_answer.read())
+
