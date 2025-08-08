@@ -1,0 +1,424 @@
+Introduction to Classes
+#1
+print(type(5))
+# prints "<class 'int'>"
+my_dict = {}
+
+print(type(my_dict))
+# prints "<class 'dict'>"
+my_list = []
+
+print(type(my_list))
+# prints "<class 'list'>"
+
+#2
+class Facade:
+  pass
+
+#3
+class Facade:
+  pass
+
+facade_1 = Facade()
+
+#4
+class Facade:
+  pass
+
+facade_1 = Facade()
+
+facade_1_type = type(facade_1)
+
+print(facade_1_type)
+# prints <class '__main__.Facade'>
+
+
+
+#5
+ 
+class Grade:
+  minimum_passing = 65
+
+
+
+
+
+
+
+
+
+
+#6
+ 
+class Rules:
+  def washing_brushes(self):
+    return "Point bristles towards the basin while washing your brushes."
+
+
+
+
+
+
+#7
+ 
+
+class Circle:
+  pi = 3.14
+  def area(self, radius):
+    return Circle.pi * radius ** 2  
+
+circle = Circle()
+
+pizza_area = circle.area(12/2)
+teaching_table_area = circle.area(36/2)
+round_room_area = circle.area(11460/2)
+
+
+
+
+#8
+
+class Circle:
+    pi = 3.14
+    
+    def __init__(self, diameter):
+        self.diameter = diameter
+        print("New circle with diameter: " + str(self.diameter))
+
+# Create a circle teaching_table with diameter 36
+teaching_table = Circle(36)
+
+#9
+class Store:
+  pass
+
+alternative_rocks = Store()
+isabelles_ices = Store()
+
+alternative_rocks.store_name = "Alternative Rocks"
+isabelles_ices.store_name = "Isabelle's Ices"
+
+
+there is a better way of writing this stuff that makes more sense. It was not asked in the exercise but this gives a better idea of what’s going on here:
+class Store:
+    def __init__(self, store_name):
+        self.store_name = store_name
+
+alternative_rocks = Store("Alternative Rocks")
+isabelles_ices = Store("Isabelle's Ices")
+
+
+
+
+
+
+So why do we bother using init?
+
+The __init__ method in Python is a special method used for initializing new objects. It's short for "initialize."
+________________________________________
+🔧 What it Does:
+When you create an instance of a class (e.g., Store("Alternative Rocks")), Python automatically calls the class's __init__ method to set up the object.
+________________________________________
+🔍 Example:
+python
+CopyEdit
+class Store:
+    def __init__(self, store_name):
+        self.store_name = store_name
+•	__init__ runs right after you create a Store object.
+•	store_name is a parameter you pass in.
+•	self.store_name = store_name saves that value as an attribute on the instance.
+________________________________________
+🧪 Usage:
+python
+CopyEdit
+store1 = Store("Alternative Rocks")
+print(store1.store_name)  # Output: Alternative Rocks
+________________________________________
+🔁 Breakdown of the Parameters:
+•	self is the instance itself (you don’t pass it explicitly — Python does that for you).
+•	You supply the other arguments (store_name in this case).
+________________________________________
+Without __init__:
+If you don't use __init__, you have to manually set attributes like this:
+
+store = Store()
+store.store_name = "Alternative Rocks"
+
+But using __init__ is cleaner, more predictable, and allows you to enforce what data each object starts with.
+
+#10
+can_we_count_it = [{'s': False}, "sassafrass", 18, ["a", "c", "s", "d", "s"]]
+
+for element in can_we_count_it:
+  if hasattr(element, "count"):
+    print(str(type(element)) + " has the count attribute!")
+  else:
+    print(str(type(element)) + " does not have the count attribute :(")
+
+  # output: 
+# <class 'dict'> does not have the count attribute :(
+# <class 'str'> has the count attribute!
+# <class 'int'> does not have the count attribute :(
+# <class 'list'> has the count attribute!
+
+This code is checking what types of variables has the count attribute available in python. The code has outputted that dictionaries and integers does not have a count attribute whilst strings and lists do. 
+You can change this code for checking other types of attributes that variables may carry e.g. instead of “count” you can put “append” or “upper” and see what types of variables allow you to do .append or .upper to them. 
+
+
+
+
+
+
+
+
+
+#11
+class Circle:
+  pi = 3.14
+  def __init__(self, diameter):
+    print("Creating circle with diameter {d}".format(d=diameter))
+    # Add assignment for self.radius here:
+    self.radius = diameter/2
+
+  def circumference (self):
+    return 2 * self.pi * self.radius
+
+medium_pizza = Circle(12)
+teaching_table = Circle(36)
+round_room = Circle(11460)
+
+print(f"The circumference of a medium pizza is {medium_pizza.circumference()}")
+print(f"The circumference of a teaching table is {teaching_table.circumference()}")
+print(f"The circumference of a round room is {round_room.circumference()}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#12
+
+
+
+
+
+
+
+	
+example_list = [5]
+
+print(type(example_list))
+
+print(dir(example_list))
+# dir() is short for directory and tells you the attibutes that can apply to an object
+
+def this_function_is_an_object(num):
+  return ("Chesse is {} times better than everything else".format(num))
+
+print(this_function_is_an_object(5))
+# prints Chesse is 5 times better than everything else
+
+print(dir(this_function_is_an_object))
+# prints ['__annotations__', '__builtins__', '__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__get__', '__getattribute__', '__getstate__', '__globals__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__kwdefaults__', '__le__', '__lt__', '__module__', '__name__', '__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__type_params__']
+
+
+
+
+
+
+
+
+
+
+
+
+
+#13
+class Circle:
+  pi = 3.14
+  
+  def __init__(self, diameter):
+    self.radius = diameter / 2
+
+  def __repr__(self):
+    return (f"Circle with radius {self.radius}")
+  
+  def area(self):
+    return self.pi * self.radius ** 2
+  
+  def circumference(self):
+    return self.pi * 2 * self.radius
+  
+  
+medium_pizza = Circle(12)
+teaching_table = Circle(36)
+round_room = Circle(11460)
+
+print(medium_pizza)
+print(teaching_table)
+print(round_room)
+# Prints: 
+# Circle with radius 6.0
+# Circle with radius 18.0
+# Circle with radius 5730.0
+
+
+
+
+
+
+
+
+#14
+class Student:
+  def __init__(self, name, year):
+    self.name = name
+    self.year = year
+    self.grades = []
+  
+  def add_grade(self, grade):
+    if type(grade) is Grade: # This line checks if the object being passed into the add_grade() method is specifically an instance of the Grade class.
+      self.grades.append(grade)
+
+class Grade:
+  minimum_passing = 65
+  def __init__(self,score):
+    self.score = score
+  def __repr__(self):
+        return f"Grade({self.score})"
+
+roger = Student("Roger van der Weyden", 10)
+sandro = Student("Sandro Botticelli", 12)
+pieter = Student("Pieter Bruegel the Elder", 8)
+
+grade1 = Grade(100) # wraps the value 100 into Grade so that the type is Grade and not int
+pieter.add_grade(grade1)
+
+print(pieter.grades) # prints: [Grade(100)]
+
+
+
+
+
+
+
+
+Project:
+class Menu:
+  def __init__(self, name, items, start_time, end_time):
+    self.name = name
+    self.items = items
+    self.start_time = start_time
+    self.end_time = end_time
+  def __repr__(self):
+    return (f"{self.name} menu avaliable from {self.start_time} to {self.end_time}")
+  def calculate_bill(self, purchased_items):
+    total = 0
+    for item in purchased_items:
+      if item in self.items:
+        total += self.items[item]
+    return (f"Here are the purchased items: \n{purchased_items}\n Total: £{total:.2f}")
+
+brunch_menu = {'pancakes': 7.50, 'waffles': 9.00, 'burger': 11.00, 'home fries': 4.50, 'coffee': 1.50, 'espresso': 3.00, 'tea': 1.00, 'mimosa': 10.50, 'orange juice': 3.50}
+
+early_bird_menu = {'salumeria plate': 8.00, 'salad and breadsticks (serves 2, no refills)': 14.00, 'pizza with quattro formaggi': 9.00, 'duck ragu': 17.50, 'mushroom ravioli (vegan)': 13.50, 'coffee': 1.50, 'espresso': 3.00}
+
+dinner_menu = {'crostini with eggplant caponata': 13.00, 'caesar salad': 16.00, 'pizza with quattro formaggi': 11.00, 'duck ragu': 19.50, 'mushroom ravioli (vegan)': 13.50, 'coffee': 2.00, 'espresso': 3.00}
+
+kids_menu = {'chicken nuggets': 6.50, 'fusilli with wild mushrooms': 12.00, 'apple juice': 3.00}
+
+brunch = Menu("Brunch", brunch_menu, 11, 16)
+print(brunch)
+
+early_bird = Menu("Early Bird", early_bird_menu, 15, 18)
+print(early_bird)
+
+dinner_menu = Menu("Dinner", dinner_menu, 17, 11)
+print(dinner_menu)
+
+kids = Menu("Kids", kids_menu, 11, 21)
+print(kids)
+
+breakfast_order = ["pancakes", "home fries", "coffee"]
+
+print(brunch.calculate_bill(breakfast_order))
+
+early_bird_order = ["salumeria plate", "mushroom ravioli (vegan)"]
+
+print(early_bird.calculate_bill(early_bird_order))
+
+print("---------------------------------------")
+
+class Franchise:
+  def __init__(self,address,menus):
+    self.address = address
+    self.menus = menus
+  
+  def __repr__(self):
+    return (f"The restaurant is located at {self.address} and offers the menus: {self.menus}")
+
+  def available_menus(self,time):
+    if time >= 11 and time < 15:
+      print("The brunch and kids menus are avaliable")
+    elif time >= 15 and time < 16:
+      print("The brunch, early bird and kids menus are avaliable")
+    elif time >= 16 and time < 17:
+      print("The early bird and kids menus are avaliable")
+    elif time >= 17 and time < 18:
+      print("The early bird, dinner and kids menus are avaliable")
+    elif time >= 18 and time < 21:
+      print("The dinner and kids menus are avaliable")
+    else:
+      print("The restaurant is closed. No menus are avaliable")
+
+flagship_store = Franchise("1232 West End Road", [brunch_menu, early_bird_menu, dinner_menu, kids_menu])
+
+new_installment = Franchise("12 East Mulberry Street", [brunch_menu, early_bird_menu, dinner_menu, kids_menu])
+
+flagship_store.available_menus(17)
+
+print("-----------------------------------")
+
+class Business:
+  def __init__(self, name, franchises):
+    self.name = name
+    self.franchises = franchises
+
+first_business = Business("Basta Fazoolin\' with my Heart", [flagship_store, new_installment])
+
+arepa_menu_items = {'arepa pabellon': 7.00, 'pernil arepa': 8.50, 'guayanes arepa': 8.00, 'jamon arepa': 7.50}
+
+arepas_menu = Menu("Take a’ Arepa", arepa_menu_items, 10, 20)
+
+arepas_place = Franchise("189 Fitzgerald Avenue", [arepas_menu])
+
+take_arepa_business = Business("Take a' Arepa!", [arepas_place])
+
+# 1. Test Menu
+print(arepas_menu)
+print(arepas_menu.calculate_bill(['arepa pabellon', 'jamon arepa']))
+
+print("-------------------------")
+
+# 2. Test Franchise
+print(arepas_place)
+arepas_place.available_menus(13)
+
+print("-------------------------")
+
+# 3. Test Business
+print(take_arepa_business.name)
+for franchise in take_arepa_business.franchises:
+    print(franchise.address)
+
