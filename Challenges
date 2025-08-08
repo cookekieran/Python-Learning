@@ -1,0 +1,1203 @@
+Python code challenges: control flow
+
+#1
+
+num1 = 6
+num2 = 3
+
+# Write your if statement here
+def addition(num1, num2):
+  calculate = num1 + num2
+  return calculate
+
+calculation = addition(num1, num2)
+
+if calculation == 10:
+  not_ten = False
+else:
+  not_ten = True
+
+print(not_ten)
+
+
+# Uncomment the below lines to show the result
+print("Is the sum of the numbers not equal to 10?\n" + str(not_ten))
+
+
+
+
+
+
+
+
+
+
+#2 
+
+# Monthly budget
+budget = 2000
+
+# Monthly expenses
+food_bill = 200
+electricity_bill = 100
+internet_bill = 60
+rent = 1500
+
+# Calculate the total amount of expenses
+total = food_bill + electricity_bill + internet_bill + rent
+
+# Check if the total is greater than the budget and store the result in over_budget
+
+if budget > total:
+  over_budget = False
+else:
+  over_budget = True
+
+# Uncomment the below lines to see the results
+
+print("Total: " + str(total))
+print("Is it over budget? " + str(over_budget))
+
+
+
+
+
+
+
+
+
+
+
+#3 
+
+# Write your large_power function here:
+
+def large_power(base, exponent):
+  answer = base ** exponent
+  if answer > 5000:
+    chicken = True
+  else:
+    chicken = False
+  return (chicken, answer)
+
+# Uncomment these function calls to test your large_power function:
+print(large_power(2, 13))
+# should print True
+print(large_power(2, 12))
+# should print False
+
+
+#4 
+
+# Write your twice_as_large function here:
+def twice_as_large(num1, num2):
+  answer = num1 / num2 
+  if answer > 2:
+    return True
+  else:
+    return False
+  
+
+# Uncomment these function calls to test your twice_as_large function:
+print(twice_as_large(10, 5))
+# should print False
+print(twice_as_large(11, 5))
+# should print True
+
+#5
+
+# Write your divisible_by_ten() function here:
+def divisible_by_ten(num):
+  answer = num % 10
+  if answer == 0:
+    return True
+  else:
+    return False
+
+
+# Uncomment these print() function calls to test your divisible_by_ten() function:
+
+print(divisible_by_ten(20))
+# should print True
+print(divisible_by_ten(25))
+# should print False
+
+Control flow (advanced):
+#1
+
+# Write your in_range function here:
+
+def in_range(num, lower, upper):
+  if num >= lower and num <= upper:
+    return True
+  else:
+    return False
+
+# Uncomment these function calls to test your in_range function:
+print(in_range(10, 10, 10))
+# should print True
+print(in_range(5, 10, 20))
+# should print False
+
+#2
+
+# Write your same_name function here:
+def same_name(your_name, my_name):
+  if your_name == my_name:
+    return True
+  else:
+    return False
+
+# Uncomment these function calls to test your same_name function:
+print(same_name("Colby", "Colby"))
+# should print True
+print(same_name("Tina", "Amber"))
+# should print False
+
+#3
+
+# Write your always_false function here:
+def always_false(num):
+  if (num > 0 and num < 0):
+    return True
+  else:
+    return False
+
+# Uncomment these function calls to test your always_false function:
+print(always_false(0))
+# should print False
+print(always_false(-1))
+# should print False
+print(always_false(1))
+# should print False
+
+
+
+
+
+Lists:
+#1
+
+# Write your function here
+def append_size(my_list):
+  answer = len(my_list)
+  my_list.append(answer)
+  return my_list
+
+# Uncomment the line below when your function is done
+print(append_size([23, 42, 108]))
+
+
+#2 
+
+# Write your function here
+def append_sum(my_list):
+  answer = my_list[-1] + my_list[-2]
+  my_list.append(answer)
+  answer2 = my_list[-1] + my_list[-2]
+  my_list.append(answer2)
+  answer3 = my_list[-1] + my_list[-2]
+  my_list.append(answer3)
+  return my_list
+
+#More efficicent method:
+def append_sum(my_list):
+  for i in range(3):
+    next_sum = my_list[-1] + my_list[-2]
+    my_list.append(next_sum)
+  return my_list
+
+  
+# Uncomment the line below when your function is done
+print(append_sum([1, 1, 2]))
+
+#3 
+# Write your function here
+def larger_list(my_list1, my_list2):
+  if len(my_list1) > len(my_list2):
+    return my_list1[-1]
+  elif len(my_list1) < len(my_list2):
+    return my_list2[-1]
+  else:
+    return my_list1[-1]
+
+# Uncomment the line below when your function is done
+print(larger_list([4, 10, 2, 5], [-10, 2, 5, 10]))
+
+#4
+# Write your function here
+def more_than_n(my_list, item, n):
+  if my_list.count(item) > n:
+    return True
+  else:
+    return False
+
+# Uncomment the line below when your function is done
+print(more_than_n([2, 4, 6, 2, 3, 2, 1, 2], 2, 3))
+
+#5
+
+# Write your function here
+def combine_sort(my_list1, my_list2):
+  new_list = my_list1 + my_list2
+  sorted_list = sorted(new_list)
+  return sorted_list
+
+# Uncomment the line below when your function is done
+print(combine_sort([4, 10, 2, 5], [-10, 2, 5, 10]))
+
+
+
+Loops:
+#1
+#Write your function here
+def divisible_by_ten(nums):
+  count = 0
+  for number in nums:
+    if number % 10 == 0:
+      count += 1
+  return count
+  
+#Uncomment the line below when your function is done
+print(divisible_by_ten([20, 25, 30, 35, 40]))
+
+#2
+
+#Write your function here
+def add_greetings(names):
+  greeting = []
+  for name in names:
+    greeting.append("Hello, " + name)
+  return greeting
+
+#Uncomment the line below when your function is done
+print(add_greetings(["Owen", "Max", "Sophie"]))
+
+
+#3 
+#Write your function here
+def delete_starting_evens(my_list):
+  while len(my_list) > 0 and my_list[0] % 2 == 0:
+    my_list.pop(0)
+  return my_list
+
+#Uncomment the lines below when your function is done
+print(delete_starting_evens([4, 8, 10, 11, 12, 15]))
+print(delete_starting_evens([4, 8, 10]))
+
+(the range function – I couldn’t remember what its used for) 
+
+ 
+
+
+
+#4 
+#Write your function here
+def odd_indices(my_list):
+  new_list = []
+  for index in range(1, len(my_list), 2):
+    new_list.append(my_list[index])
+  return new_list
+
+#Uncomment the line below when your function is done
+print(odd_indices([4, 3, 7, 10, 11, -2]))
+
+
+#5 
+
+#Write your function here
+def exponents(bases, powers):
+  results = []
+  for base, power in zip(bases, powers):
+    results.append(base**power)
+  return results
+
+#Uncomment the line below when your function is done
+print(exponents([2, 3, 4], [1, 2, 3]))
+
+#Write your function here
+def exponents(bases, powers):
+  results = []
+  for base in bases:
+    for power in powers:
+      results.append(base**power)
+  return results
+
+#Uncomment the line below when your function is done
+print(exponents([2, 3, 4], [1, 2, 3]))
+
+
+Loops (advanced):
+#1
+#Write your function here
+def larger_sum(lst1, lst2):
+  for total1 in lst1:
+    total1 = sum(lst1)
+  for total2 in lst2:
+    total2 = sum(lst2)
+  if total1 > total2:
+    print (f"lst1 holds a greater value of {total1}")
+    return lst1
+  elif total1 == total2:
+    print("The two list sum to an equal value")
+  else:
+    print(f"lst2 holds a greater value of {total2}")
+    return lst2
+
+  #Alternative method:
+  def larger_sum(lst1, lst2):
+  sum1 = 0
+  sum2 = 0
+  for number in lst1:
+    sum1 += number
+  for number in lst2:
+    sum2 += number
+  if sum1 >= sum2:
+    return lst1
+  else: 
+    return lst2
+
+#Uncomment the line below when your function is done
+print(larger_sum([1, 9, 5], [2, 3, 7]))
+
+
+
+
+
+#2
+#Write your function here
+def over_nine_thousand(lst):
+  sum1 = 0
+  for number in lst:
+    sum1 += number
+    if sum1 > 9000:
+      break
+  return sum1
+  
+#Uncomment the line below when your function is done
+print(over_nine_thousand([8000, 900, 120, 5000]))
+
+#3
+#Write your function here
+def max_num(nums):
+  max1 = nums[0]
+  for number in nums:
+    if number > max1:
+      max1 = number
+  return max1
+
+#Uncomment the line below when your function is done
+print(max_num([50, -10, 0, 75, 20]))
+
+
+
+
+
+
+
+
+
+
+
+#4 
+#Write your function here
+def same_values(lst1, lst2):
+  new_list = []
+  for i in range(len(lst1)):
+    if lst1[i] == lst2[i]:
+      new_list.append(i)
+  return new_list
+
+# another method 
+
+def same_values(lst1,lst2):
+  new_list = []
+  for num1, num2 in zip(lst1, lst2):
+    if num1 == num2:
+      new_list.append(num1)
+  return new_list
+
+  # another method
+
+def same_values(lst1, lst2):
+  index = 0
+  new_list = []
+  for num1, num2 in zip(lst1, lst2):
+    if num1 == num2:
+      new_list.append(index)
+    index += 1
+  return new_list
+
+#Uncomment the line below when your function is done
+print(same_values([5, 1, -10, 3, 3], [5, 10, -10, 3, 5]))
+
+
+
+
+
+
+#5
+#Write your function here
+def reversed_list (lst1, lst2):
+  new_list = []
+  for i in range(len(lst2) -1, -1, -1):
+    new_list.append(lst2[i])
+  return lst1, new_list
+
+def reversed_list2 (lst1, lst2):
+  reversed_lst2 = lst2[::-1]
+  if lst1 == reversed_lst2:
+    return True
+  else:
+    return False
+
+# Uncomment the lines below when your function is done
+print(reversed_list([1, 2, 3], [3, 2, 1]))
+print(reversed_list2([1, 2, 3], [3, 2, 1]))
+print(reversed_list([1, 5, 3], [3, 2, 1]))
+print(reversed_list2([1, 5, 3], [3, 2, 1]))
+
+for this problem I used two new ideas, being the line with for i in range(len(lst2) -1, -1, -1). When using a range function python uses the format range(start, stop, step). If all three are left blank it defaults to start at the start, finish at the end and step by 1 as you move through the list. However, the purpose of the -1, -1, -1 is that it starts at -1 (the end) finishes at -1 (this is one value below zero, which doesn’t exist in our list so effectively finishes at zero) and steps by -1 (moving backwards by one value each time.)
+later in the code I reverse lst 2 with one line of code being, reversed_lst2 = lst2[::-1]. This is working in the same way as the range function with the (start, stop, step). However values are left blank between the colons. the default movement through the list by python can be summarised as the following:
+If start is omitted, Python assumes:
+•	If step > 0, start at index 0
+•	If step < 0, start at last index (end of the list)
+If stop is omitted, Python assumes:
+•	If step > 0, go until the end
+•	If step < 0, go until the start (index 0), inclusive
+
+Functions
+#1
+# Write your tenth_power function here:
+def tenth_power(num):
+  return[x ** 10 for x in num]
+
+# The above line of code does not work for this scenario because it is applicable for lists, not single numbers. Therefore it is showing an error in this example, but would be perfect for a list.
+
+def tenth_power(num):
+  return num ** 10
+
+# Uncomment these function calls to test your tenth_power function:
+print(tenth_power(1))
+# 1 to the 10th power is 1
+print(tenth_power(0))
+# 0 to the 10th power is 0
+print(tenth_power(2))
+# 2 to the 10th power is 1024
+
+#2
+# Write your square_root function here:
+def square_root(num):
+  return num** 0.5
+
+# Uncomment these function calls to test your square_root function:
+print(square_root(16))
+#should print 4
+print(square_root(100))
+#should print 10
+
+
+
+
+
+#3 
+# Write your win_percentage function here:
+def win_percentage(wins, losses):
+  total_matches = wins + losses
+  return (wins/total_matches) * 100
+
+# Uncomment these function calls to test your win_percentage function:
+print(win_percentage(5, 5))
+print(win_percentage(10, 0))
+
+#4
+# Write your average function here:
+def average(num1, num2):
+  return (num1 + num2)/2
+
+# Uncomment these function calls to test your average function:
+print(average(1, 100))
+#The average of 1 and 100 is 50.5
+print(average(1, -1))
+#The average of 1 and -1 is 0
+
+#5 
+# Write your remainder function here:
+def remainder(num1, num2):
+  return (2*num1) % (0.5*num2)
+
+# Uncomment these function calls to test your remainder function:
+print(remainder(15, 14))
+# should print 2
+print(remainder(9, 6))
+# should print 0
+
+
+
+
+
+Functions (advanced):
+#1 
+# Write your first_three_multiples function here
+def first_three_multiples(num):
+  answer = [num, num*2, num*3]
+  print(answer)
+  return answer[-1]
+
+# Uncomment these function calls to test your first_three_multiples function:
+first_three_multiples(10)
+# should print 10, 20, 30, and return 30
+first_three_multiples(0)
+# should print 0, 0, 0, and return 0
+
+This function returns 30 as it’s the last item in the list but 30 is not shown in the output but this value is return but you do not see the returned value unless you ask the code to do so. If you write print(first_three_multiples(10)) then it will show 30 in the output, because you are asking for a print of the return of the function. 
+#2
+# Write your tip function here:
+def tip(total, percentage):
+  answer = (total/100) * percentage
+  return answer
+    
+# Uncomment these function calls to test your tip function:
+print(tip(10, 25))
+# should print 2.5
+print(tip(0, 100))
+# should print 0.0
+
+
+
+
+
+
+
+#3 
+# Write your introduction function here:
+def introduction(first_name, last_name):
+  return (f"The names {last_name}, {first_name} {last_name}")
+
+#alternative:
+def introduction(first_name, last_name):
+  return last_name + ", " + first_name + " " + last_name
+  
+# Uncomment these function calls to test your introduction function:
+print(introduction("James", "Bond"))
+# should print Bond, James Bond
+print(introduction("Maya", "Angelou"))
+# should print Angelou, Maya Angelou
+
+#4
+# Write your dog_years function here:
+def dog_years(name, age):
+  return (f"{name}, you are {7*age} years old in dog years")
+  
+# Uncomment these function calls to test your dog_years function:
+print(dog_years("Lola", 16))
+# should print "Lola, you are 112 years old in dog years"
+print(dog_years("Baby", 0))
+# should print "Baby, you are 0 years old in dog years"
+
+
+#5
+# Write your lots_of_math function here:
+def lots_of_math(a,b,c,d):
+  answer1 = a+d
+  answer2 = c-d
+  answer3 = answer1 * answer2
+  print(answer1)
+  print(answer2)
+  print(answer3)
+  return (answer3 % a)
+
+# Uncomment these function calls to test your lots_of_math function:
+print(lots_of_math(1, 2, 3, 4))
+# should print 5, -1, -5, 0
+print(lots_of_math(1, 1, 1, 1))
+# should print 2, 0, 0, 0
+
+
+
+
+Code challenges part 2
+#1
+letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+# Write your unique_english_letters function here:
+
+def unique_english_letters(word):
+  count = 0
+  for each_letter in letters:
+    if each_letter in word:
+      count += 1
+  return(count)
+
+# Uncomment these function calls to test your function:
+print(unique_english_letters("mississippi"))
+# should print 4
+print(unique_english_letters("Apple"))
+# should print 4
+
+#2
+# Write your count_char_x function here:
+def count_char_x(word, x):
+  count = 0
+  for each_letter in word:
+    if x in each_letter:
+      count += 1
+  return count
+
+# Uncomment these function calls to test your tip function:
+print(count_char_x("mississippi", "s"))
+# should print 4
+print(count_char_x("mississippi", "m"))
+# should print 1
+
+
+
+
+
+#3
+# Write your count_multi_char_x function here:
+def count_multi_char_x(word, x):
+  return len(word.split(x)) -1
+
+# Another method 
+
+def count_multi_char_x_2(word, x):
+  return word.count(x)
+
+# Uncomment these function calls to test your function:
+print(count_multi_char_x("mississippi", "iss"))
+# should print 2
+print(count_multi_char_x("apple", "pp"))
+# should print 1
+
+#4
+# Write your substring_between_letters function here:
+def substring_between_letters(word, start, end):
+  start_position = word.find(start) + 1
+  end_position = word.find(end)
+  if start_position - 1 > -1 and end_position > -1:
+    return word[start_position:end_position]
+  else:
+    return word
+
+# Uncomment these function calls to test your function:
+print(substring_between_letters("apple", "p", "e"))
+# should print "pl"
+print(substring_between_letters("apple", "d", "e"))
+# should print "apple"
+
+
+
+
+
+
+#5
+# Write your x_length_words function here:
+def x_length_words(sentence, x):
+  words_in_sentence = sentence.split(" ")
+  for words in words_in_sentence:
+    if len(words) >= x:
+      return True
+    else:
+      return False  
+
+# Uncomment these function calls to test your tip function:
+print(x_length_words("i like apples", 2))
+# should print False
+print(x_length_words("he likes apples", 2))
+# should print True
+
+Strings (advanced):
+#1
+# Write your check_for_name function here:
+def check_for_name(sentence, name):
+  words_in_sentence = sentence.split(" ")
+  for word in words_in_sentence:
+    if name.upper() == word.upper():
+      return True
+  return False
+
+# Uncomment these function calls to test your  function:
+print(check_for_name("My name is Jamie", "Jamie"))
+# should print True
+print(check_for_name("My name is jamie", "Jamie"))
+# should print True
+print(check_for_name("My name is Samantha", "Jamie"))
+# should print False
+
+Alternative method:
+def check_for_name(sentence, name):
+  return name.lower() in sentence.lower()
+#2
+# Write your every_other_letter function here:
+def every_other_letter(word):
+  new_word = []
+  for index, letter in enumerate(word):
+   if index % 2 == 0:
+    new_word.append(letter)
+  answer = "".join(new_word)
+  return answer
+
+# Another Method
+def every_other_letter(word):
+  new_word = []
+  new_word.append(word[::2])
+  return new_word
+
+# Better Method
+def every_other_letter(word):
+  return word[::2]
+
+# Uncomment these function calls to test your function:
+print(every_other_letter("Codecademy"))
+# should print Cdcdm
+print(every_other_letter("Hello world!"))
+# should print Hlowrd
+print(every_other_letter(""))
+# should print 
+
+
+
+
+
+
+
+
+
+#3
+# Write your reverse_string function here:
+def reverse_string(word):
+  return word[-1::-1]
+# Another Method
+def reverse_string(word):
+  new_word = []
+  reversed_order = word[-1::-1]
+  new_word.append(reversed_order)
+  return new_word
+
+# Another Method
+def reverse_string(word):
+  reverse = ""
+  for i in range(len(word)-1, -1, -1):
+    reverse += word[i]
+  return reverse
+# Uncomment these function calls to test your  function:
+print(reverse_string("Codecademy"))
+# should print ymedacedoC
+print(reverse_string("Hello world!"))
+# should print !dlrow olleH
+print(reverse_string(""))
+# should print
+#4
+# Write your make_spoonerism function here:
+def make_spoonerism(word1, word2):
+  new_word = []
+  letter1 = word1[0]
+  word1_changed = word2[0] + word1[1::1]
+  word2_changed = word1[0] + word2[1::1]
+  new_word.append(f"{word1_changed} {word2_changed}")
+  return new_word
+
+# Uncomment these function calls to test your function:
+print(make_spoonerism("Codecademy", "Learn"))
+# should print Lodecademy Cearn
+print(make_spoonerism("Hello", "world!"))
+# should print wello Horld!
+print(make_spoonerism("a", "b"))
+# should print b a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#5
+# Write your add_exclamation function here:
+def add_exclamation(word):
+  answer = []
+  if len(word) < 20:
+    new_word = word + "!!!!!!!!!!!!!!!!!!!!"
+  new_word_sliced = new_word[:20:1]
+  return new_word_sliced
+
+# Another Method
+def add_exclamation(word):
+    while len(word) < 20:
+        word += "!"
+    return word
+
+#Using a for loop
+def add_exclamation(word):
+    if len(word) < 20:
+        for i in range(20 - len(word)):
+            word += "!"
+    return word
+    
+# Uncomment these function calls to test your function:
+print(add_exclamation("Codecademy"))
+# should print Codecademy!!!!!!!!!!
+print(add_exclamation("Codecademy is the best place to learn"))
+# should print Codecademy is the best place to learn
+
+
+
+
+
+
+
+
+
+Dictionaries 
+#1
+# Write your sum_values function here:
+def sum_values(my_dictionary):
+  count = 0
+  for values in my_dictionary.values():
+    count += values
+  return count
+
+# Uncomment these function calls to test your sum_values function:
+print(sum_values({"milk":5, "eggs":2, "flour": 3}))
+# should print 10
+print(sum_values({10:1, 100:2, 1000:3}))
+# should print 6
+
+#2
+# Write your sum_even_keys function here:
+def sum_even_keys(my_dictionary):
+  total = 0
+  for key, value in my_dictionary.items():
+    if key % 2 == 0:
+      total += value
+  return total
+
+# Another Method
+def sum_even_keys(my_dictionary):
+  total = 0
+  for key in my_dictionary.keys():
+    if key%2 == 0:
+      total += my_dictionary[key]
+  return total
+
+# Uncomment these function calls to test your  function:
+print(sum_even_keys({1:5, 2:2, 3:3}))
+# should print 2
+print(sum_even_keys({10:1, 100:2, 1000:3}))
+# should print 6
+
+#3
+# Write your add_ten function here:
+def add_ten(my_dictionary):
+  for key in my_dictionary.keys():
+    my_dictionary[key] += 10
+  return my_dictionary
+
+# Uncomment these function calls to test your  function:
+print(add_ten({1:5, 2:2, 3:3}))
+# should print {1:15, 2:12, 3:13}
+print(add_ten({10:1, 100:2, 1000:3}))
+# should print {10:11, 100:12, 1000:13}
+
+#4
+# Write your values_that_are_keys function here:
+def values_that_are_keys(my_dictionary):
+  answer = []
+  for values in my_dictionary.values():
+    if values in my_dictionary:
+      answer.append(values)
+  return value_keys
+
+# Uncomment these function calls to test your  function:
+print(values_that_are_keys({1:100, 2:1, 3:4, 4:10}))
+# should print [1, 4]
+print(values_that_are_keys({"a":"apple", "b":"a", "c":100}))
+# should print ["a"]
+
+
+
+
+
+
+
+
+
+#5
+# Write your max_key function here:
+def max_key(my_dictionary):
+  largest_key = float("-inf")
+  largest_value = float("-inf")
+  for key, value in my_dictionary.items():
+    if value > largest_value:
+      largest_value = value
+      largest_key = key
+  return largest_key
+
+# Uncomment these function calls to test your  function:
+print(max_key({1:100, 2:1, 3:4, 4:10}))
+# should print 1
+print(max_key({"a":100, "b":10, "c":1000}))
+# should print "c"
+
+
+
+
+
+Dictionaries (advanced):
+#1
+# Write your word_length_dictionary function here:
+def word_length_dictionary(list_of_words):
+  dictionary = {}
+  for word in list_of_words:
+    dictionary[word] = [len(word)]
+  return dictionary
+
+# Uncomment these function calls to test your  function:
+print(word_length_dictionary(["apple", "dog", "cat"]))
+# should print {"apple":5, "dog": 3, "cat":3}
+print(word_length_dictionary(["a", ""]))
+# should print {"a": 1, "": 0}
+
+#2
+# Write your frequency_dictionary function here:
+def frequency_dictionary(list_of_words):
+  dictionary = {}
+  for word in list_of_words:
+    if word in dictionary:
+      dictionary[word] +=1
+    else:
+      dictionary[word] = 1
+  return dictionary
+
+# Uncomment these function calls to test your  function:
+print(frequency_dictionary(["apple", "apple", "cat", 1]))
+# should print {"apple":2, "cat":1, 1:1}
+print(frequency_dictionary([0,0,0,0,0]))
+# should print {0:5}
+
+
+
+
+
+#3
+# Write your unique_values function here:
+def unique_values(my_dictionary):
+  answer = []
+  for values in my_dictionary.values():
+    if values not in answer:
+      answer.append(values)
+  return len(answer)
+
+# Uncomment these function calls to test your  function:
+print(unique_values({0:3, 1:1, 4:1, 5:3}))
+# should print 2
+print(unique_values({0:3, 1:3, 4:3, 5:3}))
+# should print 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#4
+# Write your count_first_letter function here:
+def count_first_letter(dictionary):
+  letters = {}
+  for names, values in dictionary.items():
+    if names[0] not in letters:
+      letters[names[0]] = len(values)
+    else:
+      letters[names[0]] += len(values)
+  return letters
+
+# Alternative Method
+def count_first_letter(names):
+  letters = {}
+  for key in names:
+    first_letter = key[0]
+    if first_letter not in letters:
+      letters[first_letter] = 0
+    letters[first_letter] += len(names[key])
+  return letters
+
+# Uncomment these function calls to test your  function:
+print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Lannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 4, "L": 3}
+print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Sannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 7}
+
+
+
+
+
+
+
+
+Classes
+#1
+# Define the DriveBot class here!
+class DriveBot:
+  def __init__(self, motor_speed, direction, sensor_range):
+    self.motor_speed = motor_speed
+    self.direction = direction
+    self.sensor_range = sensor_range
+
+test_bot = DriveBot(30, 90, 10)
+
+print(test_bot.motor_speed)
+print(test_bot.direction)
+print(test_bot.sensor_range)
+#2
+class DriveBot:
+    def __init__(self):
+        self.motor_speed = 0
+        self.direction = 0
+        self.sensor_range = 0
+    
+    # Add the methods here!
+    def control_bot(self, new_speed, new_direction):
+      self.motor_speed = new_speed
+      self.direction = new_direction
+    
+    def adjust_sensor(self, new_sensor_range):
+      self.sensor_range = new_sensor_range
+
+robot_1 = DriveBot()
+# Use the methods here!
+robot_1.control_bot(10, 180)
+robot_1.adjust_sensor(20)
+
+print(robot_1.motor_speed)
+print(robot_1.direction)
+print(robot_1.sensor_range)
+
+#3
+class DriveBot:
+    # Update this constructor!
+    def __init__(self, motor_speed=0, direction=180, sensor_range=10):
+        self.motor_speed = motor_speed
+        self.direction = direction
+        self.sensor_range = sensor_range
+    
+    def control_bot(self, new_speed, new_direction):
+        self.motor_speed = new_speed
+        self.direction = new_direction
+
+    def adjust_sensor(self, new_sensor_range):
+        self.sensor_range = new_sensor_range
+
+robot_1 = DriveBot()
+robot_1.motor_speed = 5
+robot_1.direction = 90
+robot_1.sensor_range = 10
+
+# Create robot_2 here!
+robot_2 = DriveBot()
+robot_2.motor_speed = 35
+robot_2.direction = 75
+robot_2.sensor_range = 25
+
+print(robot_2.motor_speed)
+print(robot_2.direction)
+print(robot_2.sensor_range)
+
+
+
+
+
+
+
+
+#4
+class DriveBot:
+
+    all_disabled = False
+    latitude = -float('inf')
+    longitude = -float('inf')
+
+  # Create the class variables!
+    def __init__(self, motor_speed = 0, direction = 180, sensor_range = 10):
+        self.motor_speed = motor_speed
+        self.direction = direction
+        self.sensor_range = sensor_range
+    
+    def control_bot(self, new_speed, new_direction):
+        self.motor_speed = new_speed
+        self.direction = new_direction
+
+    def adjust_sensor(self, new_sensor_range):
+        self.sensor_range = new_sensor_range  
+
+robot_1 = DriveBot()
+robot_1.motor_speed = 5
+robot_1.direction = 90
+robot_1.sensor_range = 10
+
+robot_2 = DriveBot(35, 75, 25)
+robot_3 = DriveBot(20, 60, 10)
+
+# Change the latitude, longitude, and all_disabled values for all three robots using only three lines of code!
+
+DriveBot.latitude = 51.5074    
+DriveBot.longitude = -0.1278 
+DriveBot.all_disabled = True
+
+print(robot_1.latitude)
+print(robot_2.longitude)
+print(robot_3.all_disabled)
+#5
+class DriveBot:
+  # Create a counter to keep track of how many robots were created
+    all_disabled = False
+    latitude = -999999
+    longitude = -999999
+    robot_count = 0
+
+    def __init__(self, motor_speed = 0, direction = 180, sensor_range = 10):
+        self.motor_speed = motor_speed
+        self.direction = direction
+        self.sensor_range = sensor_range
+        DriveBot.robot_count += 1
+        self.id = DriveBot.robot_count
+    
+    def control_bot(self, new_speed, new_direction):
+        self.motor_speed = new_speed
+        self.direction = new_direction
+
+    def adjust_sensor(self, new_sensor_range):
+        self.sensor_range = new_sensor_range
+
+robot_1 = DriveBot()
+robot_1.motor_speed = 5
+robot_1.direction = 90
+robot_1.sensor_range = 10
+
+robot_2 = DriveBot(35, 75, 25)
+robot_3 = DriveBot(20, 60, 10)
+
+print(robot_1.id)
+print(robot_2.id)
+print(robot_3.id)
